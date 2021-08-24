@@ -82,8 +82,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //ページ読み込み時に1回だけ実行
   (async () => {
-    await createSelectorType();
-    await createSelectorNumber();
-    main();
+    Promise.all([createSelectorType(), createSelectorNumber()]).then(() => {
+      main();
+    });
   })();
 });
